@@ -1,1 +1,1 @@
-# f-lab-springboot-jpa-project-template
+주문부터 배달 현황까지 확인하는 서비스 입니다.
