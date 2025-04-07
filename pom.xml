@@ -11,8 +11,14 @@
 	<groupId>com.junghyun</groupId>
 	<artifactId>order-delivery-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
 	<name>order-delivery-service</name>
 	<description>Demo project for Spring Boot</description>
+
+	<modules>
+		<module>product-service</module>
+	</modules>
 	<url/>
 	<licenses>
 		<license/>
