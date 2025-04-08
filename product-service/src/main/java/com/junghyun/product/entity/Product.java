@@ -1,6 +1,8 @@
 package com.junghyun.product.entity;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
+
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -12,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
