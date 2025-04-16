@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
@@ -33,4 +32,10 @@ public class ProductController {
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
+
+    @GetMapping("/category/{category}")
+    public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String category) {
+        return ResponseEntity.ok(productService.getProductsByCategory(category));
+    }
+
 }

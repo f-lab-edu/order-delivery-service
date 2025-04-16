@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 
 @Service
 @RequiredArgsConstructor
@@ -35,5 +36,11 @@ public class ProductService {
     public Product getProductById(Long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 ID의 상품이 존재하지 않습니다: " + id));
+    }
+
+    @Cacheable(value = "product", key = "#category")
+    public List<Product> getProductsByCategory(String category) {
+        return productRepository.findByCategory(category)
+                .orElseThrow(() -> new IllegalArgumentException("해당 카테고리의 상품이 존재하지 않습니다: " + category));
     }
 }
